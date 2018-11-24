@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node -r dotenv/config index.js"
+    "start": "set NODE_ENV=dev && node -r dotenv/config index.js"
   },
   "author": "",
   "license": "ISC",
@@ -21,6 +21,10 @@
     "async": "^1.5.0",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^5.9.0",
     "mocha": "^5.2.0",
     "should": "^8.3.1"
   }

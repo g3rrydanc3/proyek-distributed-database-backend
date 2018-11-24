@@ -3,6 +3,7 @@ const express = require('express');
 const webServerConfig = require('../config/web-server.js');
 const morgan = require('morgan');
 const database = require('./database.js');
+const router = require('./router.js');
 
 let httpServer;
 
@@ -15,7 +16,7 @@ function initialize() {
     /*app.get('/', (req, res) => {
       res.end('Hello World!');
     });*/
-    
+    app.use('/api', router);
     app.get('/', async (req, res) => {
       const result = await database.simpleExecute('select user, systimestamp from dual');
       const user = result.rows[0].USER;
