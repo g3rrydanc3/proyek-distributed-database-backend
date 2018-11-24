@@ -1,6 +1,7 @@
 const webServer = require('./services/web-server.js');
 const dbConfig = require('./config/database.js');
 const database = require('./services/database.js');
+const dotenv = require('dotenv');
 
 const defaultThreadPoolSize = 4;
 
@@ -8,8 +9,16 @@ const defaultThreadPoolSize = 4;
 process.env.UV_THREADPOOL_SIZE = dbConfig.foPool.poolMax + defaultThreadPoolSize;
 
 if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').load();
+  dotenv.config();
 }
+
+const result = dotenv.config()
+
+/*if (result.error) {
+  throw result.error
+}*/
+
+console.log(result.parsed)
 
 
 async function startup() {
