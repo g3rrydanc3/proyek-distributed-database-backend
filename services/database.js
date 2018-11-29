@@ -24,7 +24,7 @@ function simpleExecute(statement, binds = [], opts = {}) {
       conn = await oracledb.getConnection();
  
       const result = await conn.execute(statement, binds, opts);
- 
+
       resolve(result);
     } catch (err) {
       reject(err);

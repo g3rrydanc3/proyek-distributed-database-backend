@@ -22,7 +22,7 @@ async function find(context) {
 module.exports.find = find;
 
 /* POST */
-const createSql ='insert into room_type values ( :room_type_id, :room_type, :description, :capacity, :price);';
+const createSql ='insert into room_type values ( :room_type_id, :room_type, :description, :capacity, :price)';
 
 //insert into room_type values ( :room_type_id, :room_type,:description,:capacity,:price) returning room_type_id into :room_type_id
 
@@ -33,10 +33,8 @@ async function create(emp) {
     dir: oracledb.BIND_OUT,
     type: oracledb.NUMBER
   }*/
-  
-  const result = await database.simpleExecute(createSql, roomType);
-  //console.log(result);
 
+  const result = await database.simpleExecute(createSql, roomType);
   //roomType.room_type_id = result.outBinds.room_type_id[0];
  
   return roomType;
